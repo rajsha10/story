@@ -1,0 +1,207 @@
+*{
+  font-family: "Rubik", sans-serif;
+}
+.story-upload {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(26, 26, 25, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(49, 81, 30, 0.2);
+  border: 1px solid rgba(133, 159, 61, 0.1);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.story-upload::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #859F3D, #31511E, #859F3D);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s linear infinite;
+}
+
+.story-upload h2 {
+  color: #F6FCDF;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Macondo", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(133, 159, 61, 0.3);
+}
+
+.story-upload input,
+.story-upload textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(246, 252, 223, 0.05);
+  border: 1px solid rgba(133, 159, 61, 0.2);
+  border-radius: 10px;
+  color: #F6FCDF;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.story-upload textarea {
+  min-height: 300px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.story-upload input:focus,
+.story-upload textarea:focus {
+  outline: none;
+  border-color: #859F3D;
+  box-shadow: 0 0 15px rgba(133, 159, 61, 0.2);
+  background: rgba(246, 252, 223, 0.08);
+}
+
+.story-upload input::placeholder,
+.story-upload textarea::placeholder {
+  color: rgba(246, 252, 223, 0.5);
+}
+
+.story-upload button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #859F3D 0%, #31511E 100%);
+  color: #F6FCDF;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-upload button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(133, 159, 61, 0.3);
+  background: linear-gradient(135deg, #31511E 0%, #859F3D 100%);
+}
+
+.story-upload button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.story-upload button.loading {
+  position: relative;
+}
+
+.story-upload button.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(246, 252, 223, 0.2),
+    transparent
+  );
+  animation: loading-shine 1.5s infinite;
+}
+
+.status-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #F6FCDF;
+  background: rgba(49, 81, 30, 0.2);
+  border: 1px solid rgba(133, 159, 61, 0.2);
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Input focus style with glowing effect */
+.story-upload input:focus,
+.story-upload textarea:focus {
+  animation: input-glow 1.5s infinite alternate;
+}
+
+/* Animations */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes loading-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes input-glow {
+  from {
+    box-shadow: 0 0 5px rgba(133, 159, 61, 0.2),
+                0 0 10px rgba(133, 159, 61, 0.2),
+                0 0 15px rgba(133, 159, 61, 0.2);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(133, 159, 61, 0.3),
+                0 0 20px rgba(133, 159, 61, 0.3),
+                0 0 30px rgba(133, 159, 61, 0.3);
+  }
+}
+
+/* Error state styling */
+.story-upload input:invalid,
+.story-upload textarea:invalid {
+  border-color: rgba(255, 87, 87, 0.5);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .story-upload {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .story-upload h2 {
+    font-size: 1.5rem;
+  }
+
+  .story-upload input,
+  .story-upload textarea {
+    padding: 0.8rem;
+  }
+
+  .story-upload textarea {
+    min-height: 200px;
+  }
+}
+
+/* Dark scrollbar styling */
+.story-upload textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.story-upload textarea::-webkit-scrollbar-track {
+  background: rgba(26, 26, 25, 0.8);
+  border-radius: 4px;
+}
+
+.story-upload textarea::-webkit-scrollbar-thumb {
+  background: #859F3D;
+  border-radius: 4px;
+}
+
+.story-upload textarea::-webkit-scrollbar-thumb:hover {
+  background: #31511E;
+}

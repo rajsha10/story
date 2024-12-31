@@ -1,0 +1,160 @@
+*{
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.feed-container {
+  background: linear-gradient(135deg, #1A1A19 0%, #31511E 100%);
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error-message {
+  background: rgba(255, 87, 87, 0.2);
+  border-left: 4px solid #ff5757;
+  color: #F6FCDF;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 8px 8px 0;
+  backdrop-filter: blur(5px);
+}
+
+.loading {
+  color: #F6FCDF;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.story-card {
+  background: rgba(26, 26, 25, 0.8);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(49, 81, 30, 0.2);
+  border: 1px solid rgba(133, 159, 61, 0.1);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #859F3D, #31511E);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(49, 81, 30, 0.3);
+}
+
+.story-card:hover::before {
+  opacity: 1;
+}
+
+.story-title {
+  color: #F6FCDF;
+  font-family: "Macondo", cursive;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(133, 159, 61, 0.3);
+}
+
+.author-info {
+  color: #859F3D;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-family: "Rubik", sans-serif;
+}
+
+.story-content {
+  color: #F6FCDF;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.tips-info {
+  color: #859F3D;
+  font-weight: 500;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.tip-button {
+  background: linear-gradient(135deg, #859F3D 0%, #31511E 100%);
+  color: #F6FCDF;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(133, 159, 61, 0.2);
+}
+
+.tip-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(133, 159, 61, 0.3);
+  background: linear-gradient(135deg, #31511E 0%, #859F3D 100%);
+}
+
+.tip-button:disabled {
+  background: #1A1A19;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.like-button {
+  background: transparent;
+  color: #859F3D;
+  border: 2px solid #859F3D;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.like-button:hover {
+  background: rgba(133, 159, 61, 0.1);
+  transform: translateY(-2px);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(246, 252, 223, 0.2),
+                 0 0 20px rgba(133, 159, 61, 0.2),
+                 0 0 30px rgba(49, 81, 30, 0.2);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(246, 252, 223, 0.4),
+                 0 0 30px rgba(133, 159, 61, 0.4),
+                 0 0 40px rgba(49, 81, 30, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .feed-container {
+    padding: 1rem;
+  }
+  
+  .story-card {
+    padding: 1.5rem;
+  }
+  
+  .story-title {
+    font-size: 1.5rem;
+  }
+}
